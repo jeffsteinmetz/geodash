@@ -9,11 +9,13 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.2.2/d3.v3.min.js"></script>
   <script src="../dist/GeoDash.min.js"></script>
   <style>
-
+    body {
+      font: 14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
     .charts {
       margin: 20px auto;
       width: 900px;
-      text-align: center;
+      
     }
     .barchart {
       width: 300px;
@@ -39,12 +41,13 @@
       float: left;
       background: #fff;
       margin-bottom: 20px;
+      text-align: center;
     }
   </style>
 </head>
 <body>
-
   <div class="charts">
+  <h1>Geodash.js</h1>
     <div class="barchart chart"></div>
     <div class="piechart chart"></div>
     <div class="linechart chart"></div>
