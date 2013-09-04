@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Geodash by esrgc</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Geodash</h1>
+        <p>A modern charting and mapping library for the web.</p>
+
+        <p class="view"><a href="https://github.com/esrgc/geodash">View the Project on GitHub <small>esrgc/geodash</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/esrgc/geodash/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/esrgc/geodash/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/esrgc/geodash">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a name="geodashjs" class="anchor" href="#geodashjs"><span class="octicon octicon-link"></span></a>GeoDash.js</h1>
+
+<p>A modern charting and mapping library for the web. (A D3 wrapper for lazy charts.)</p>
+
+<p>This is an alpha build under heavy development. Expect API breaks in new versions.</p>
+
+<p><img src="test/geodashcharts.png?raw=true" alt="Image"></p>
+
+<p>Requirements</p>
+
+<ul>
+<li>D3.js</li>
+</ul><h4>
+<a name="bar-chart" class="anchor" href="#bar-chart"><span class="octicon octicon-link"></span></a>Bar Chart</h4>
+
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">barchart</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GeoDash</span><span class="p">.</span><span class="nx">BarChart</span><span class="p">(</span><span class="s1">'.barchart'</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">x</span><span class="o">:</span> <span class="s1">'name'</span><span class="p">,</span>
+  <span class="nx">y</span><span class="o">:</span> <span class="s1">'score'</span><span class="p">,</span>
+  <span class="nx">barColor</span><span class="o">:</span> <span class="s1">'#f00'</span>
+<span class="p">});</span>
+
+<span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">[{</span>
+    <span class="s1">'name'</span><span class="o">:</span> <span class="s1">'steve'</span><span class="p">,</span>
+    <span class="s1">'score'</span><span class="o">:</span> <span class="mi">999999</span>
+  <span class="p">},{</span>
+    <span class="s1">'name'</span><span class="o">:</span> <span class="s1">'woz'</span><span class="p">,</span>
+    <span class="s1">'score'</span><span class="o">:</span> <span class="mi">4</span>
+  <span class="p">},{</span>
+    <span class="s1">'name'</span><span class="o">:</span> <span class="s1">'jonny'</span><span class="p">,</span>
+    <span class="s1">'score'</span><span class="o">:</span> <span class="mi">3</span>
+<span class="p">}];</span>
+
+<span class="nx">barchart</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+</pre></div>
+
+<h4>
+<a name="line-chart" class="anchor" href="#line-chart"><span class="octicon octicon-link"></span></a>Line Chart</h4>
+
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">linechart</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GeoDash</span><span class="p">.</span><span class="nx">LineChart</span><span class="p">(</span><span class="s2">".linechart"</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">x</span><span class="o">:</span> <span class="s1">'date'</span><span class="p">,</span>
+  <span class="nx">y</span><span class="o">:</span> <span class="s1">'numCats'</span><span class="p">,</span>
+  <span class="nx">width</span><span class="o">:</span> <span class="s1">'auto'</span><span class="p">,</span>
+  <span class="nx">height</span><span class="o">:</span> <span class="mi">255</span><span class="p">,</span>
+  <span class="nx">colors</span><span class="o">:</span> <span class="p">[</span><span class="s1">'#d80000'</span><span class="p">,</span> <span class="s1">'#006200'</span><span class="p">],</span>
+  <span class="nx">interpolate</span><span class="o">:</span> <span class="s1">'monotone'</span><span class="p">,</span>
+  <span class="nx">dotRadius</span><span class="o">:</span> <span class="mi">3</span>
+<span class="p">});</span>
+
+<span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">[{</span>
+    <span class="s2">"date"</span><span class="o">:</span><span class="s2">"2011-01-01T05:00:00.000Z"</span><span class="p">,</span>
+    <span class="s2">"numCats"</span><span class="o">:</span><span class="mi">159773</span>
+  <span class="p">},{</span>
+    <span class="s2">"date"</span><span class="o">:</span><span class="s2">"2012-01-01T05:00:00.000Z"</span><span class="p">,</span>
+    <span class="s2">"numCats"</span><span class="o">:</span><span class="mi">70920</span>
+  <span class="p">},{</span>
+    <span class="s2">"date"</span><span class="o">:</span><span class="s2">"2013-01-01T05:00:00.000Z"</span><span class="p">,</span>
+    <span class="s2">"numCats"</span><span class="o">:</span><span class="mi">97755</span>
+<span class="p">}];</span>
+
+<span class="nx">linechart</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+</pre></div>
+
+<h4>
+<a name="pie-chart" class="anchor" href="#pie-chart"><span class="octicon octicon-link"></span></a>Pie Chart</h4>
+
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">piechart</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GeoDash</span><span class="p">.</span><span class="nx">PieChart</span><span class="p">(</span><span class="s1">'.piechart'</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">label</span><span class="o">:</span> <span class="s1">'source'</span><span class="p">,</span>
+  <span class="nx">value</span><span class="o">:</span> <span class="s1">'percent'</span><span class="p">,</span>
+  <span class="nx">colors</span><span class="o">:</span> <span class="p">[</span><span class="s2">"#d80000"</span><span class="p">,</span> <span class="s2">"#0B6909"</span><span class="p">,</span> <span class="s2">"#EDD70A"</span><span class="p">],</span>
+  <span class="nx">innerRadius</span><span class="o">:</span> <span class="mi">10</span>
+<span class="p">});</span>
+
+<span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">[{</span>
+    <span class="s2">"source"</span><span class="o">:</span><span class="s2">"lol"</span><span class="p">,</span>
+    <span class="s2">"percent"</span><span class="o">:</span><span class="mi">2</span>
+  <span class="p">},{</span>
+    <span class="s2">"source"</span><span class="o">:</span><span class="s2">"cats"</span><span class="p">,</span>
+    <span class="s2">"percent"</span><span class="o">:</span><span class="mi">96</span>
+  <span class="p">},{</span>
+    <span class="s2">"source"</span><span class="o">:</span><span class="s2">"#woah"</span><span class="p">,</span>
+    <span class="s2">"percent"</span><span class="o">:</span><span class="mi">2</span>
+<span class="p">}];</span>
+
+<span class="nx">piechart</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+</pre></div>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/esrgc">esrgc</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
