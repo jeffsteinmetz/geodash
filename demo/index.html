@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GeoDash</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <link rel="stylesheet" href="GeoDash.min.css" />
+  <script src="d3.v3.min.js"></script>
+  <script src="GeoDash.min.js"></script>
+  <style>
+
+    .charts {
+      margin: 20px auto;
+      width: 900px;
+      text-align: center;
+    }
+    .barchart {
+      width: 300px;
+      height: 300px;
+    }
+    .barcharthorizontal {
+      width: 450px;
+      height: 450px;
+    }
+    .barchart2 {
+      width: 450px;
+      height: 450px;
+    }
+    .piechart {
+      width: 300px;
+      height: 300px;
+    }
+    .linechart {
+      width: 300px;
+      height: 300px;
+    }
+    .chart {
+      float: left;
+      background: #fff;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="charts">
+    <div class="barchart chart"></div>
+    <div class="piechart chart"></div>
+    <div class="linechart chart"></div>
+    <div class="barcharthorizontal chart"></div>
+    <div class="barchart2 chart"></div>
+  </div>
+
+  <script type="text/javascript">
+    var barchart = new GeoDash.BarChart('.barchart', {
+      x: 'name',
+      y: 'score',
+      barColor: '#f00',
+      title: 'Bar Chart',
+      drawX: true
+    });
+
+    var data = [{
+        'name': 'steve',
+        'score': 21
+      },{
+        'name': 'woz',
+        'score': 16
+      },{
+        'name': 'jonny',
+        'score': 7
+    }];
+
+    barchart.update(data);
+
+    var piechart = new GeoDash.PieChart('.piechart', {
+      label: 'source',
+      value: 'percent',
+      colors: ["#b30000", "#e60000", "#ff4d4d"],
+      opacity: 0.7,
+      innerRadius: 10,
+      title: 'Pie Chart',
+      hover: true
+    });
+
+    var data = [{
+        "source":"lol",
+        "percent":33
+      },{
+        "source":"cats",
+        "percent":11
+      },{
+        "source":"#woah",
+        "percent":2
+    }];
+
+    piechart.update(data);
+
+    var parseDate = d3.time.format("%Y").parse;
+    var linechart = new GeoDash.LineChart(".linechart", {
+      x: 'date',
+      y: 'numCats',
+      width: 'auto',
+      height: 'auto',
+      colors: ['#f00'],
+      title: 'Number of Cats',
+      interpolate: 'monotone',
+      dotRadius: 3
+    });
+
+    var data = [{
+        "date":parseDate("2007"),
+        "numCats":92817
+      },{
+        "date":parseDate("2008"),
+        "numCats":81039
+      },{
+        "date":parseDate("2009"),
+        "numCats":75920
+      },{
+        "date":parseDate("2010"),
+        "numCats":76920
+      },{
+        "date":parseDate("2011"),
+        "numCats":84123
+      },{
+        "date":parseDate("2012"),
+        "numCats":96109
+      },{
+        "date":parseDate("2013"),
+        "numCats":145897
+    }];
+
+    linechart.update(data);
+
+    var barcharthorizontal = new GeoDash.BarChartHorizontal('.barcharthorizontal', {
+      x: 'geo',
+      y: 'C002',
+      barColor: '#f00',
+      title: 'Horizontal Bar Chart',
+      drawX: true,
+      drawY: true,
+      verticalX: true
+    });
+
+    var data = [
+    {
+      "geo": "Allegany County",
+      "geocode": "1",
+      "C002": "74692"
+    },
+    {
+      "geo": "Anne Arundel County",
+      "geocode": "3",
+      "C002": "544403"
+    },
+    {
+      "geo": "Baltimore City",
+      "geocode": "510",
+      "C002": "619493"
+    },
+    {
+      "geo": "Baltimore County",
+      "geocode": "5",
+      "C002": "809941"
+    },
+    {
+      "geo": "Calvert County",
+      "geocode": "9",
+      "C002": "89256"
+    },
+    {
+      "geo": "Caroline County",
+      "geocode": "11",
+      "C002": "-32985"
+    },
+    {
+      "geo": "Carroll County",
+      "geocode": "13",
+      "C002": "167288"
+    },
+    {
+      "geo": "Cecil County",
+      "geocode": "15",
+      "C002": "101694"
+    },
+    {
+      "geo": "Charles County",
+      "geocode": "17",
+      "C002": "149130"
+    },
+    {
+      "geo": "Dorchester County",
+      "geocode": "19",
+      "C002": "-32640"
+    },
+    {
+      "geo": "Frederick County",
+      "geocode": "21",
+      "C002": "236745"
+    },
+    {
+      "geo": "Garrett County",
+      "geocode": "23",
+      "C002": "30051"
+    },
+    {
+      "geo": "Harford County",
+      "geocode": "25",
+      "C002": "246489"
+    },
+    {
+      "geo": "Howard County",
+      "geocode": "27",
+      "C002": "-293142"
+    },
+    {
+      "geo": "Kent County",
+      "geocode": "29",
+      "C002": "20204"
+    },
+    {
+      "geo": "Montgomery County",
+      "geocode": "31",
+      "C002": "989794"
+    },
+    {
+      "geo": "Prince George's County",
+      "geocode": "33",
+      "C002": "871233"
+    },
+    {
+      "geo": "Queen Anne's County",
+      "geocode": "35",
+      "C002": "48354"
+    },
+    {
+      "geo": "Somerset County",
+      "geocode": "39",
+      "C002": "26339"
+    },
+    {
+      "geo": "St. Mary's County",
+      "geocode": "37",
+      "C002": "107484"
+    },
+    {
+      "geo": "Talbot County",
+      "geocode": "41",
+      "C002": "38025"
+    },
+    {
+      "geo": "Washington County",
+      "geocode": "43",
+      "C002": "148203"
+    },
+    {
+      "geo": "Wicomico County",
+      "geocode": "45",
+      "C002": "99190"
+    },
+    {
+      "geo": "Worcester County",
+      "geocode": "47",
+      "C002": "51514"
+    }
+  ];
+
+    barcharthorizontal.update(data);
+    var barchart2 = new GeoDash.BarChart('.barchart2', {
+      x: 'geo',
+      y: 'C002',
+      barColor: '#f00',
+      title: 'Bar Chart with Labels',
+      drawX: true,
+      verticalX: true
+    });
+
+    barchart2.update(data);
+  </script>
+</body>
+</html>
